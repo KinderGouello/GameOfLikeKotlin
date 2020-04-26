@@ -10,14 +10,17 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-{{ checksum "build.gradle.kts" }}
             - v1-dependencies-
       - run: gradle dependencies
       - save_cache:
           paths:
             - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+          key: v1-dependencies-{{ checksum "build.gradle.kts" }}
       - run: ./gradlew test
+      - run:
+          name: Codecov
+          command: 'bash <(curl -s https://codecov.io/bash)'
 workflows:
   version: 2
   workflow:
