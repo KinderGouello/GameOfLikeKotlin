@@ -3,6 +3,7 @@ package com.kata.gameoflife.unit
 import com.kata.gameoflife.domain.Cell
 import com.kata.gameoflife.domain.CellState
 import com.kata.gameoflife.domain.Cells
+import com.kata.gameoflife.domain.Grid
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -24,7 +25,7 @@ internal class GridTest {
                 Pair(2, 1) to Cell(CellState.DEAD),
                 Pair(2, 2) to Cell()
         )
-        val grid = com.kata.gameoflife.domain.Grid(cells)
+        val grid = Grid(cells)
 
         // WHEN
         val newGrid = grid.nextGeneration()
@@ -78,7 +79,7 @@ internal class GridTest {
                 Pair(3, 3) to Cell(),
                 Pair(3, 4) to Cell()
         )
-        val grid = com.kata.gameoflife.domain.Grid(cells)
+        val grid = Grid(cells)
 
         // WHEN
         val newGrid = grid.nextGeneration()
